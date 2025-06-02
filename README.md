@@ -27,11 +27,13 @@ DynamoDB Table Setup
 Flights Table (py_dynamodb_crud_flights)
 
 --> Partition Key: flight_id (String)
+
 --> Other Attributes: origin, arrival_time, departure_time, destination, price, seats_available
 
 Bookings Table (py_dynamodb_crud_bookings)
 
 --> Partition Key: booking_id (String)
+
 --> Other Attributes: passenger_name, flight_id, seat_number, status
 
 --------------------------------------------------------------------------------
@@ -40,6 +42,8 @@ Create Tables Using AWS CLI
 
 Run these commands to create your tables:
 
+<pre>
+```bash
 aws dynamodb create-table \
   --table-name py_dynamodb_crud_flights \
   --attribute-definitions AttributeName=flight_id,AttributeType=S \
@@ -53,6 +57,9 @@ aws dynamodb create-table \
   --key-schema AttributeName=booking_id,KeyType=HASH \
   --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
   --region ap-south-1
+  ```
+</pre>
+
 
 --------------------------------------------------------------------------------
 
@@ -113,7 +120,9 @@ This will perform CRUD operations and print output.
 Additional Notes
 
 --> Use conditional expressions (like attribute_not_exists) to avoid unintentionally overwriting items.
+
 --> Queries require Partition Key and optionally Sort Key for efficient access. Scans should be avoided on large tables.
+
 --> You can extend this project with error handling, pagination, secondary indexes, and integration with REST APIs or frameworks like Flask or FastAPI.
 
 --------------------------------------------------------------------------------
