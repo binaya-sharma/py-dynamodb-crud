@@ -43,7 +43,6 @@ Create Tables Using AWS CLI
 Run these commands to create your tables:
 
 <pre>
-```bash
 aws dynamodb create-table \
   --table-name py_dynamodb_crud_flights \
   --attribute-definitions AttributeName=flight_id,AttributeType=S \
@@ -57,7 +56,6 @@ aws dynamodb create-table \
   --key-schema AttributeName=booking_id,KeyType=HASH \
   --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
   --region ap-south-1
-  ```
 </pre>
 
 
@@ -111,7 +109,9 @@ How to Run
 2. Create DynamoDB tables using the CLI commands above.
 3. Run your Python script:
 
+<pre>
 python dynamodb_crud.py
+</pre>
 
 This will perform CRUD operations and print output.
 
